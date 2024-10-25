@@ -1,8 +1,8 @@
 @layer reset, init, design;
-
+ 
 @import url(normalize.css) layer(reset);
 @import url(https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap) layer(init);
-
+ 
 @layer init {
     :root {
         --primary: #66d4d4;
@@ -13,7 +13,7 @@
     }
     html {
         font-family: "Open Sans", sans-serif;
-        color: var(--black);
+        color: var(--black, black);
         font-weight: 400;
     }
     .page__logo::before {
@@ -26,21 +26,150 @@
         background-repeat: no-repeat;
         */
         background-image: url("../images/logo.svg");
-        width: 2em;
-        height: 1em;
+        width:auto;
+        height: 100%;
         font-size: 1.5em;
     }
     .page__logo > span {
         display: none;
     }
 }
-
+ 
 /* VRSTVA PRO VAŠE STYLY */
 @layer design {
    .image-responsive {
-        display: block;
-        width: 100%;
-        
+    display:block;
+    width:100%;
+   
+ 
+   }
+   
+ 
+ 
+   .page__header {
+    background-image: url(../images/header-2560w.webp);
+    background-size: cover;
+    background-position: bottom left;
+    padding:1em;
    }
 
+   .page__logo-container{
+    text-align: center;
+ 
+   }
+   .page__logo{
+        display: block;
+        padding:1em;
+        height: 2em;
+        aspect-ratio: 42 / 24;
+        margin: 0 auto;
+   }
+ 
+   .page__intro{
+ 
+    color: var(--light, white);
+    margin-left:1em;
+    margin-bottom: 1em;
+   }
+ 
+   .button{
+    background-color: var(--primary, teal);
+    color: var(--light, white);
+    padding:0.5em 1em;
+    border-radius: 0.5em;
+    font-weight: 700;
+    text-decoration: none;
+   }
+   .button:hover{
+    background-color: var(--black, black);
+    color: white;
+    transition: 500ms;
+ 
+   }
+   .button--light{
+    background-color: var(--light, white);
+    color: var(--black, black);
+    padding:0.5em 1em;
+    border-radius: 0.5em;
+    font-weight: 700;
+    text-decoration: none;
+   }
+
+
+   .page__content {
+    padding: 1.5em;
+   }
+   .picture-box {
+    margin: 0em ;
+   }
+   .picture-box__caption {
+    font-size: 0.8em;
+    color: var(--gray, gray);
+    text-align: center;
+    margin-top: .75em;
+   }
+
+   .text-h3 {
+    font-size: 1.125em;
+    font-weight: 700;
+    margin-bottom: 1em;
+   }
+
+   .outline-box {
+    border: 1px solid var(--primary, aqua);
+    padding: 1em;
+    
+   }
+
+   .list > li::marker {
+    color: var(--primary, aqua);
+   }
+   
+   .product {
+    padding: 1em;
+    max-width: 24em;
+    display: inline-block;
+   }
+
+   .product__footer {
+    display: block;
+    padding: 1em;
+    text-align: center;
+    color: var(--light);
+    background-color: var(--black, black);
+    margin-bottom: 2em;
+
+   }
+
+   .text-h3--larger {
+    font-size: 1.5em;
+   }
+
+   .gallery {
+    --indent: 0.5em;
+   margin: calc (-1 * var(--indent)) ; 
+
+   }
+
+
+
+   .gallery__item {
+    display: block;
+    margin: var(--indent);
+   }
+
+   @media (min-width: 768px) {
+    .gallery__item {
+        display: inline-block;
+        width: calc(50% - 2 * var(--indent));
+    }
+
+    .gallery__item--100vw {
+        display: block;
+        width: 100%;
+        margin: 0;
+    }
+
+
+   }
 }
